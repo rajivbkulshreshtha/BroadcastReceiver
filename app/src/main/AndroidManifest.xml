@@ -9,12 +9,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--<receiver
+            android:name=".receiver.FirstReceiver"
+            android:enabled="true"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="rajiv.broadcastreceiver.receiver" />
+            </intent-filter>
+        </receiver>-->
+
+
+        <receiver
+            android:name=".activity.MainActivity$SecondOrderBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false">
+
+            <intent-filter android:priority="20">
+                <action android:name="rajiv.broadcastreceiver.activity" />
+            </intent-filter>
+        </receiver>
+
+
+        <receiver
+            android:name=".activity.MainActivity$FirstOrderBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false">
+
+            <intent-filter android:priority="10">
+                <action android:name="rajiv.broadcastreceiver.activity" />
+            </intent-filter>
+        </receiver>
+
     </application>
+
 </manifest>
